@@ -1,0 +1,152 @@
+/* --- Variáveis e Estilos Globais (Fontes Atualizadas) --- */
+:root {
+    --bg-dark: #0a0a10;
+    --panel-bg: #11131e;
+    --primary-accent: #ffb700; /* Ouro Vibrante */
+    --secondary-accent: #00d9ff; /* Ciano Elétrico */
+    --text-light: #f0f0f0;
+    --border-color: rgba(255, 183, 0, 0.25);
+
+    /* Cores de Carga */
+    --positive-charge: #00ff89; /* Verde */
+    --negative-charge: #ff4757; /* Vermelho */
+    --neutral-charge: #888888;  /* Cinza */
+    
+    --error-color: #ff4d4d;
+    
+    /* NOVAS VARIÁVEIS DE FONTE */
+    --font-body: 'Source Sans 3', sans-serif;
+    --font-tech: 'IBM Plex Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Fonte principal alterada */
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* --- Estrutura Principal --- */
+.main-container { width: 100%; max-width: 1200px; text-align: center; }
+
+header h1 {
+    /* Fonte tecnológica aplicada */
+    font-family: var(--font-tech);
+    font-weight: 700;
+    color: var(--primary-accent);
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    text-shadow: 0 0 15px var(--primary-accent);
+}
+
+header p {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+.simulator-wrapper { display: flex; gap: 2rem; background-color: var(--panel-bg); border: 1px solid var(--border-color); border-radius: 15px; padding: 2rem; box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); text-align: left; }
+
+/* --- Painel de Controles --- */
+.controls-panel { flex: 1; min-width: 280px; border-right: 1px solid var(--border-color); padding-right: 2rem; }
+
+.controls-panel h2, .sphere-controls h3 {
+    /* Fonte tecnológica aplicada */
+    font-family: var(--font-tech);
+    font-weight: 700;
+    color: var(--primary-accent);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.sphere-controls h3 {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--secondary-accent);
+    padding-left: 0.75rem;
+    text-align: left;
+}
+
+.input-group { margin-bottom: 1rem; }
+.input-group label { display: block; font-size: 0.9rem; margin-bottom: 0.5rem; font-weight: 400; }
+
+.input-group input {
+    /* Fonte tecnológica aplicada para os dados */
+    font-family: var(--font-tech);
+    font-weight: 500;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-light);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+.input-group input:focus { outline: none; border-color: var(--primary-accent); box-shadow: 0 0 10px var(--primary-accent); }
+
+#calculate-btn {
+    /* Fonte tecnológica aplicada */
+    font-family: var(--font-tech);
+    font-size: 1.1rem;
+    font-weight: 700;
+    width: 100%;
+    padding: 1rem;
+    color: var(--bg-dark);
+    background: var(--primary-accent);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+#calculate-btn:hover { box-shadow: 0 0 20px var(--primary-accent); transform: translateY(-3px); }
+#calculate-btn:active { transform: translateY(-1px); }
+
+.error { color: var(--error-color); margin-top: 1rem; min-height: 20px; font-weight: bold; }
+
+/* --- Painel de Simulação --- */
+.simulation-panel { flex: 2; display: flex; flex-direction: column; }
+#visualization-area { flex-grow: 1; width: 100%; min-height: 350px; overflow: hidden; }
+
+/* --- Estilos SVG --- */
+.sphere { transition: r 0.5s ease, fill 0.5s ease; }
+.sphere-label, .charge-value {
+    /* Fonte tecnológica aplicada aos rótulos do SVG */
+    font-family: var(--font-tech);
+    text-anchor: middle;
+}
+.sphere-label { font-size: 16px; fill: var(--text-light); font-weight: 700;}
+.charge-value { font-size: 14px; fill: var(--text-light); font-weight: 500;}
+
+.positive { fill: var(--positive-charge); }
+.negative { fill: var(--negative-charge); }
+.neutral { fill: var(--neutral-charge); }
+.wire { stroke: var(--border-color); stroke-width: 2px; }
+.electron-particle { fill: var(--secondary-accent); stroke: var(--bg-dark); stroke-width: 1px; }
+
+/* --- Resultados --- */
+.results-display { margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem; }
+.result-item { display: flex; justify-content: space-between; padding: 0.5rem 0; font-size: 1.1rem; }
+.result-item .label { font-weight: 400; color: var(--text-light); }
+.result-item .value {
+    /* Fonte tecnológica aplicada aos valores finais */
+    font-family: var(--font-tech);
+    font-weight: 700;
+    color: var(--primary-accent);
+}
+
+/* --- Responsividade (sem alterações) --- */
+@media (max-width: 992px) { .simulator-wrapper { flex-direction: column; } .controls-panel { border-right: none; border-bottom: 1px solid var(--border-color); padding-right: 0; padding-bottom: 2rem; } header h1 { font-size: 2rem; } }
+@media (max-width: 480px) { body { padding: 1rem; } header h1 { font-size: 1.8rem; } header p { font-size: 1rem; } .simulator-wrapper { padding: 1.5rem; } }
