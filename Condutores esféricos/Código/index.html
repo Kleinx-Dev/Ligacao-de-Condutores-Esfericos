@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Equilíbrio Eletrostático</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&family=Source+Sans+3:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-container">
+        <header>
+            <h1>Simulador de Equilíbrio Eletrostático</h1>
+            <p>Entre com os dados de duas esferas condutoras e conecte-as para ver a mágica da física.</p>
+        </header>
+
+        <main class="simulator-wrapper">
+            <aside class="controls-panel">
+                <h2>CONFIGURAÇÕES</h2>
+                
+                <div class="sphere-controls">
+                    <h3>Esfera 1</h3>
+                    <div class="input-group">
+                        <label for="radius1">Raio (cm)</label>
+                        <input type="number" id="radius1" min="1" value="20">
+                    </div>
+                    <div class="input-group">
+                        <label for="charge1">Carga Elétrica (µC)</label>
+                        <input type="number" id="charge1" value="50">
+                    </div>
+                </div>
+
+                <div class="sphere-controls">
+                    <h3>Esfera 2</h3>
+                    <div class="input-group">
+                        <label for="radius2">Raio (cm)</label>
+                        <input type="number" id="radius2" min="1" value="30">
+                    </div>
+                    <div class="input-group">
+                        <label for="charge2">Carga Elétrica (µC)</label>
+                        <input type="number" id="charge2" value="-10">
+                    </div>
+                </div>
+
+                <button id="calculate-btn">Conectar e Calcular</button>
+                <p id="error-message" class="error"></p>
+            </aside>
+
+            <section class="simulation-panel">
+                <div id="visualization-area">
+                    <svg id="simulation-svg" width="100%" height="100%"></svg>
+                </div>
+                <div class="results-display">
+                    <div class="result-item" id="result-q1">
+                        <span class="label">Carga Final Esfera 1:</span>
+                        <span class="value">-- µC</span>
+                    </div>
+                    <div class="result-item" id="result-q2">
+                        <span class="label">Carga Final Esfera 2:</span>
+                        <span class="value">-- µC</span>
+                    </div>
+                    <div class="result-item" id="result-v">
+                        <span class="label">Potencial de Equilíbrio:</span>
+                        <span class="value">-- V</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
